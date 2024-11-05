@@ -14,8 +14,7 @@ Dalam Flutter, Stateless Widget adalah widget yang tidak memiliki keadaan yang d
 
 ### 2. Sebutkan widget apa saja yang kamu gunakan pada proyek ini dan jelaskan fungsinya.
 
-Dalam proyek saya ini, widget yang digunakan meliputi `Scaffold`, `AppBar`, `Text`, `Row`, `Column`, `Expanded`, `GridView`, `Card`, `Container`, dan `InkWell`. `Scaffold` menyediakan struktur dasar tampilan, `AppBar` berfungsi sebagai bilah judul, `Text` untuk menampilkan teks, `Row` dan `Column` untuk mengatur layout, `Expanded` untuk mengisi ruang yang tersedia, `GridView` untuk menampilkan grid item, `Card` untuk memberikan efek bayangan pada tampilan, `Container` sebagai wadah untuk widget lain, dan `InkWell` memberikan efek sentuhan saat ditekan.
-
+Dalam proyek e ini, widget yang digunakan meliputi `Scaffold`, `AppBar`, `Text`, `Row`, `Column`, `Expanded`, `GridView`, `Card`, `Container`, dan `InkWell`. `Scaffold` menyediakan struktur dasar tampilan. `AppBar` digunakan sebagai bilah judul di bagian atas aplikasi, yang berisi nama aplikasi BambooShop dengan warna latar belakang hijau (Colors.green[800]). `GridView.count` digunakan untuk menampilkan tombol dalam bentuk grid. Setiap tombol ditampilkan sebagai kartu dengan ikon dan teks di dalamnya. `Icon` digunakan untuk menampilkan ikon pada setiap tombol di grid, seperti ikon untuk Lihat Daftar Produk, Tambah Produk, dan Logout. `Text` untuk menampilkan teks pada aplikasi, `Row` dan `Column` untuk mengatur layout, `Expanded` untuk mengisi ruang yang tersedia, `Card` untuk memberikan efek bayangan pada tampilan, `Container` sebagai wadah untuk widget lain, dan `InkWell` memberikan efek sentuhan saat ditekan.
 
 ### 3. Apa fungsi dari setState()? Jelaskan variabel apa saja yang dapat terdampak dengan fungsi tersebut.
 
@@ -27,4 +26,18 @@ Perbedaan antara `const` dan `final` terletak pada cara mereka menyimpan nilai. 
 
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist-checklist di atas.
 
+Pertama, saya memulai proyek flutter ini saya dengan membuat direktori mobile e-commerce dan repositoru baru di github, kemudian membuat proyek e_commerce dengan flutter create e_commerce (sesuai dengan nama proyek django saya).
 
+Selanjutnya, saya membuat file menu.dart di folder lib untuk tampilan utama dan mulai merapihkan kode dari main.dart. Saya mengubah warna aplikasi BambooShop ini menjadi hijau dengan mengganti colorScheme.
+
+Pada menu.dart, saya mengubah `MyHomePage` menjadi `StatelessWidget`. Warna aplikasi diubah menjadi hijau menggunakan `Colors.green[800]` untuk AppBar dan warna yang serasi untuk elemen lain
+
+Dalam kelas `MyHomePage`, saya menambahkan properti untuk menyimpan NPM, nama, dan kelas pengguna di `InfoCard`. Saya juga membuat daftar items yang berisi instans dari `ProductHomepage` untuk setiap tombol yang akan ditampilkan di halaman.
+
+Selanjutnya, saya membuat tiga tombol sederhana dengan ikon dan teks di dalam kelas `MyHomePage`. Saya menggunakan widget `GridView.count` untuk menampilkan tombol-tombol tersebut dalam bentuk grid, di mana setiap tombol direpresentasikan oleh instans dari kelas `ProductCard`.
+
+Saya juga mengimplementasikan warna-warna yang berbeda untuk setiap tombol. Tombol Lihat Daftar Produk menggunakan warna biru tua, Tambah Produk menggunakan warna oranye, dan Logout menggunakan warna merah. Dengan cara ini, setiap tombol memiliki identitas visual yang jelas. 
+
+Terakhir, saya membuat fitur untuk memunculkan Snackbar saat tombol ditekan. Dengan menambahkan event `onTap` di setiap tombol, saya memastikan bahwa pesan yang sesuai akan muncul di layar, yaitu "Kamu telah menekan tombol Lihat Daftar Produk", "Kamu telah menekan tombol Tambah Produk", dan "Kamu telah menekan tombol Logout".
+
+Setelah mengintegrasikan InfoCard dan ItemCard untuk ditampilkan di MyHomePage, saya mencoba untuk check kebenaran kode dengan flutter analyze. 

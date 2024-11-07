@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-
-class ProductHomepage {
-  final String name;
-  final IconData icon;
-
-  ProductHomepage(this.name, this.icon);
-}
+import 'package:e_commerce/widgets/left_drawer.dart';
+import 'package:e_commerce/widgets/product_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -33,6 +28,7 @@ class MyHomePage extends StatelessWidget {
         ),
         backgroundColor: Colors.green[800],
       ),
+      drawer: const LeftDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -112,75 +108,6 @@ class InfoCard extends StatelessWidget {
               style: const TextStyle(fontSize: 14),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class ProductCard extends StatelessWidget {
-  final ProductHomepage product;
-
-  const ProductCard(this.product, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    Color? cardColor;
-    String snackbarMessage;
-
-    switch (product.name) {
-      case "Lihat Daftar Produk":
-        cardColor = Colors.blue[600];
-        snackbarMessage = "Kamu telah menekan tombol Lihat Daftar Produk";
-        break;
-      case "Tambah Produk":
-        cardColor = const Color.fromARGB(255, 215, 153, 77);
-        snackbarMessage = "Kamu telah menekan tombol Tambah Produk";
-        break;
-      case "Logout":
-        cardColor = const Color.fromARGB(255, 167, 41, 39);
-        snackbarMessage = "Kamu telah menekan tombol Logout";
-        break;
-      default:
-        cardColor = const Color.fromARGB(255, 46, 134, 50);
-        snackbarMessage = "Kamu telah menekan tombol ${product.name}";
-    }
-
-    return Material(
-      color: cardColor,
-      borderRadius: BorderRadius.circular(16),
-      child: InkWell(
-        onTap: () {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(content: Text(snackbarMessage)),
-            );
-        },
-        child: Container(
-          padding: const EdgeInsets.all(12),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  product.icon,
-                  color: Colors.green[100],
-                  size: 36.0,
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  product.name,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.green[50],
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );

@@ -62,7 +62,6 @@ Di Flutter, `const` digunakan untuk mendeklarasikan objek atau widget yang tidak
 
 **Contoh penggunaan:**
 
-- **Column**:
   ```dart
   Column(
     children: [

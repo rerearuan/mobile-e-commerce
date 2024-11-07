@@ -73,15 +73,6 @@ Di Flutter, `const` digunakan untuk mendeklarasikan objek atau widget yang tidak
     ],
   );
 
-- **Row**:
- ```dart
-  Row(
-  children: [
-    Icon(Icons.search),
-    Text('Search'),
-  ],
-);
-
 ### 3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
 
 Pada form yang saya buat, saya menggunakan elemen-elemen input berikut:

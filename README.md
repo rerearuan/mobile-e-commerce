@@ -5,6 +5,7 @@
 ## Daftar Isi
 1. [Tugas 7](#tugas-7)
 2. [Tugas 8](#tugas-8)
+3. [Tugas 9](#tugas-9)
 
 ## Tugas 7
 
@@ -104,3 +105,38 @@ Untuk mengatur tema aplikasi di Flutter, saya menggunakan `ThemeData` pada `Mate
 Navigasi dalam Flutter ditangani dengan menggunakan `Navigator` dan `Routes`. Saya menggunakan metode `Navigator.push` untuk berpindah ke halaman baru dan `Navigator.pop` untuk kembali ke halaman sebelumnya.
 
 Pada aplikasi yang saya buat, navigasi diatur dengan mengarahkan pengguna dari satu halaman ke halaman lain menggunakan tombol-tombol yang ada, seperti mengarahkan pengguna dari halaman form produk ke halaman konfirmasi setelah data produk disimpan. Dengan menggunakan `Navigator`, aplikasi dapat menangani perpindahan antar halaman secara mulus dan menjaga alur aplikasi tetap lancar.
+
+
+## Tugas 9
+
+### 1. Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?
+
+
+
+### 2. Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini
+
+### 3. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+### 4. Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
+
+### 5. Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter
+
+### 6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+
+
+
+Memastikan deployment proyek tugas Django kamu telah berjalan dengan baik.
+catatan
+Untuk masalah terkait PWS yang belum bisa diintegrasikan dengan Flutter, Tim Asdos akan menginformasikan secara menyusul. Untuk sementara, kalian diperbolehkan untuk melakukan integrasi pada local host saja.
+
+ Mengimplementasikan fitur registrasi akun pada proyek tugas Flutter.
+ Membuat halaman login pada proyek tugas Flutter.
+ Mengintegrasikan sistem autentikasi Django dengan proyek tugas Flutter.
+ Membuat model kustom sesuai dengan proyek aplikasi Django.
+ Membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah kamu deploy.
+ Tampilkan name, price, dan description dari masing-masing item pada halaman ini.
+ Membuat halaman detail untuk setiap item yang terdapat pada halaman daftar Item.
+ Halaman ini dapat diakses dengan menekan salah satu item pada halaman daftar Item.
+ Tampilkan seluruh atribut pada model item kamu pada halaman ini.
+ Tambahkan tombol untuk kembali ke halaman daftar item.
+ Melakukan filter pada halaman daftar item dengan hanya menampilkan item yang terasosiasi dengan pengguna yang login.

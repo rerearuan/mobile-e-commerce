@@ -1,5 +1,6 @@
-import 'package:e_commerce/screens/menu.dart';
 import 'package:flutter/material.dart';
+import 'package:e_commerce/screens/menu.dart';
+import 'package:e_commerce/screens/register.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -17,8 +18,8 @@ class LoginApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.lightGreen,
-        ).copyWith(secondary: Colors.lightGreen[400]),
+          primarySwatch: Colors.deepPurple,
+        ).copyWith(secondary: Colors.deepPurple[400]),
       ),
       home: const LoginPage(),
     );
@@ -97,12 +98,8 @@ class _LoginPageState extends State<LoginPage> {
                       String username = _usernameController.text;
                       String password = _passwordController.text;
 
-                      // Cek kredensial
-                      // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
-                      // Untuk menyambungkan Android emulator dengan Django pada localhost,
-                      // gunakan URL http://10.0.2.2/
                       final response = await request
-                          .login("http://[APP_URL_KAMU]/auth/login/", {
+                          .login("http://localhost:8000/auth/login/", {
                         'username': username,
                         'password': password,
                       });
@@ -146,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      minimumSize: Size(double.infinity, 50),
+                      minimumSize: const Size(double.infinity, 50),
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                     ),

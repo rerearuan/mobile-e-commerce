@@ -111,32 +111,43 @@ Pada aplikasi yang saya buat, navigasi diatur dengan mengarahkan pengguna dari s
 
 ### 1. Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?
 
-
+Membuat model penting untuk memetakan struktur data JSON secara jelas dan terorganisir. Model membantu memastikan data yang diterima atau dikirim sesuai dengan format yang diharapkan, mengurangi potensi error saat parsing atau pengaksesan data. Tanpa model, aplikasi lebih rentan terhadap kesalahan, terutama jika struktur data berubah atau menjadi kompleks, yang bisa menyebabkan bug atau data tidak diproses dengan benar.
 
 ### 2. Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini
 
+Library http digunakan untuk melakukan permintaan HTTP, seperti GET atau POST, untuk mengirim dan menerima data antara aplikasi Flutter dan server. Library ini juga mengatur header, mengelola respons server, dan mempermudah pengolahan data JSON. Dengan menggunakan http, komunikasi antara aplikasi dan backend menjadi lebih sederhana dan efisien.
+
 ### 3. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+CookieRequest mengelola autentikasi pengguna dengan menyertakan cookie session di setiap permintaan ke server. Ini memastikan sesi pengguna tetap aktif tanpa perlu login ulang. Membagikan instance CookieRequest di seluruh aplikasi penting agar setiap komponen aplikasi dapat mengakses sesi yang sama, menjaga konsistensi dan keamanan autentikasi di seluruh aplikasi.
 
 ### 4. Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
 
+Pengguna mengisi form add product di Flutter, yang kemudian mengirimkan data ke server via HTTP. Server memproses data dan mengirimkan respons JSON. Di Flutter, data JSON diterima, diproses, dan ditampilkan di UI menggunakan state management untuk memperbarui tampilan dengan data terbaru.
+
 ### 5. Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter
+
+Pada login, data akun dikirim ke server untuk verifikasi, dan jika valid, server mengembalikan cookie sesi. Pada registrasi, data akun baru diperiksa dan disimpan di server. Untuk logout, aplikasi menghapus cookie sesi. Setelah login berhasil, aplikasi menampilkan menu dan product card berdasarkan status autentikasi pengguna.
 
 ### 6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
 
+a. Mengimplementasikan Fitur Registrasi Akun
+Buat halaman registrasi dengan input untuk nama, email, dan password. Kirim data ke endpoint Django menggunakan pbp_django_auth. Jika registrasi berhasil, arahkan pengguna ke halaman login.
 
+b.  Membuat Halaman Login
+Buat halaman login dengan input email dan password. Gunakan pbp_django_auth untuk autentikasi ke endpoint Django. Jika berhasil, session disimpan otomatis dan pengguna diarahkan ke halaman utama.
 
-Memastikan deployment proyek tugas Django kamu telah berjalan dengan baik.
-catatan
-Untuk masalah terkait PWS yang belum bisa diintegrasikan dengan Flutter, Tim Asdos akan menginformasikan secara menyusul. Untuk sementara, kalian diperbolehkan untuk melakukan integrasi pada local host saja.
+c. Mengintegrasikan Sistem Autentikasi
+Gunakan pbp_django_auth untuk mengelola autentikasi berbasis session. Pastikan setiap request ke backend membawa cookie session, yang divalidasi oleh middleware Django.
 
- Mengimplementasikan fitur registrasi akun pada proyek tugas Flutter.
- Membuat halaman login pada proyek tugas Flutter.
- Mengintegrasikan sistem autentikasi Django dengan proyek tugas Flutter.
- Membuat model kustom sesuai dengan proyek aplikasi Django.
- Membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah kamu deploy.
- Tampilkan name, price, dan description dari masing-masing item pada halaman ini.
- Membuat halaman detail untuk setiap item yang terdapat pada halaman daftar Item.
- Halaman ini dapat diakses dengan menekan salah satu item pada halaman daftar Item.
- Tampilkan seluruh atribut pada model item kamu pada halaman ini.
- Tambahkan tombol untuk kembali ke halaman daftar item.
- Melakukan filter pada halaman daftar item dengan hanya menampilkan item yang terasosiasi dengan pengguna yang login.
+d. Membuat Model Kustom
+Buat model Product di Django dengan atribut seperti name, price, description, dll. Gunakan serializer untuk menampilkan data dalam format JSON melalui endpoint API.
+
+e. Membuat Halaman Daftar Item
+Ambil data dari endpoint show_json2 di Django. Pastikan endpoint show_json2 di Django menggunakan serializer untuk mengembalikan daftar produk dalam format JSON. Fetch data dari endpoint ini menggunakan pbp_django_auth. Convert data JSON ke model Product di Flutter. Tampilkan data dalam daftar menggunakan ListView.builder, hanya menampilkan atribut name, price, dan description.
+
+f. Membuat Halaman Detail Item
+Tambahkan navigasi dari daftar item ke halaman detail. Di halaman detail, tampilkan semua atribut produk seperti name, price, description, dan lainnya. Sediakan tombol kembali ke halaman daftar item.
+
+g. Filter Berdasarkan Pengguna
+Modifikasi endpoint show_json2 di Django untuk hanya mengembalikan data produk yang terkait dengan pengguna login. Gunakan session autentikasi dari pbp_django_auth untuk mengambil data terfilter. Tampilkan hasil filter di halaman daftar item.

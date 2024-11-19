@@ -1,3 +1,4 @@
+import 'package:e_commerce/screens/list_productentry.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/screens/menu.dart';
 import 'package:e_commerce/screens/productentry_form.dart'; 
@@ -42,7 +43,6 @@ class LeftDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.home_outlined),
             title: const Text('Halaman Utama'),
-            // Navigating to the Main Page
             onTap: () {
               Navigator.pushReplacement(
                 context,
@@ -54,7 +54,7 @@ class LeftDrawer extends StatelessWidget {
           ),
        
           ListTile(
-            leading: const Icon(Icons.add_circle_outline),
+            leading: const Icon(Icons.shopping_bag),
             title: const Text('Tambah Item'),
             onTap: () {
               Navigator.push(
@@ -65,6 +65,19 @@ class LeftDrawer extends StatelessWidget {
               );
             },
           ),
+
+          ListTile(
+            leading: const Icon(Icons.add_circle),
+            title: const Text('Daftar Produk'),
+            onTap: () {
+                // Route menu ke halaman mood
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ProductListScreen()),
+                );
+            },
+        ),
+
         ],
       ),
     );
